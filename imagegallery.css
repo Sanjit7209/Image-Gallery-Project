@@ -1,0 +1,87 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#wrapper{
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.container{
+    height: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    /* marin 0 auto se left and right side ka margin exactly equal kiya jata hai */
+    margin: 0 auto;
+}
+
+.container h1{
+    margin: 20px 0;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 3rem;
+}
+
+.gallery{
+    display: flex;
+    /* flex wrap nahi karenge toh sare ke asre content ek hi line main aa jayega */
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card{
+    width: 32%;
+    position: relative;
+    margin-bottom: 20px;
+    /* border radius ka use kiye hai image ke corner ko rounded krne ke liye */
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card img{
+    height: 100%;
+    width: 100%;
+    /* filter ka use kiye image ko balck and white krne ke liye */
+    filter: grayscale(100%);
+    box-shadow: 0 0 20px #333;
+    object-fit: cover;
+}
+
+.card:hover{
+    /* hover krne se card bada ho rha hai */
+    transform: scale(1.03);
+    /* hover krne se shadow bhi banna chahiye */
+    filter: drop-shadow(0 0 10px #333);
+    transition: 0.3s;
+}
+
+.card:hover img{
+    filter: grayscale(0%);
+}
+
+.card figcaption{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 25px;
+    width: 100%;
+    height: 20%;
+    font-size: 20px;
+    font-weight: 500;
+    color: #fff;
+    /* phale image main koi text show nahi karega isliye opacity 0 likha hua hai*/
+    opacity: 0;
+    border-radius: 0 0 10px 10px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0% , rgb(255, 255, 255, 0) 100%);
+    transition: 0.3s;
+}
+
+.card:hover figcaption{
+    /* jaise hi card main hover karenge text show krne lagega isliye opacity 1 likha hua hai */
+    opacity: 1;
+    /* jaise hi card pe hover krte hai text ka size increase krna chahiye */
+    transform: scale(1.03);
+}
